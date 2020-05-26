@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Zukaz\Coupon\Api\WebhookManagementInterface" type="Zukaz\Coupon\Api\WebhookManagement"/>
+    <preference for="Zukaz\Coupon\Api\CouponManagementInterface" type="Zukaz\Coupon\Api\CouponManagement"/>
+    <preference for="Zukaz\Coupon\Api\DefaultManagementInterface" type="Zukaz\Coupon\Api\DefaultManagement"/>
+    <type name="\Magento\SalesRule\Model\ResourceModel\Rule">
+        <plugin name="zukaz_sale_rule_deleted" type="Zukaz\Coupon\Plugin\SaleRulesPlugin" />
+    </type>
+</config>

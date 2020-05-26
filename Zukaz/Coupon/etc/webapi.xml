@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/V1/zukaz/coupon/check">
+        <service class="Zukaz\Coupon\Api\DefaultManagementInterface" method="check"/>
+        <resources>
+            <resource ref="Magento_Integration::integrations"/>
+            <resource ref="Magento_SalesRule::quote"/>
+        </resources>
+    </route>
+	<route method="GET" url="/V1/zukaz/coupon/webhooks">
+		<service class="Zukaz\Coupon\Api\WebhookManagementInterface" method="list"/>
+		<resources>
+			<resource ref="Magento_Integration::integrations"/>
+		</resources>
+	</route>
+    <route method="POST" url="/V1/zukaz/coupon/webhooks">
+		<service class="Zukaz\Coupon\Api\WebhookManagementInterface" method="addUpdate"/>
+		<resources>
+			<resource ref="Magento_Integration::integrations"/>
+		</resources>
+	</route>
+    <route method="DELETE" url="/V1/zukaz/coupon/webhooks">
+		<service class="Zukaz\Coupon\Api\WebhookManagementInterface" method="delete"/>
+		<resources>
+			<resource ref="Magento_Integration::integrations"/>
+		</resources>
+	</route>
+
+    <route method="GET" url="/V1/zukaz/coupon/coupons">
+        <service class="Zukaz\Coupon\Api\CouponManagementInterface" method="list"/>
+        <resources>
+            <resource ref="Magento_SalesRule::quote"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/zukaz/coupon/coupons">
+        <service class="Zukaz\Coupon\Api\CouponManagementInterface" method="add"/>
+        <resources>
+            <resource ref="Magento_SalesRule::quote"/>
+        </resources>
+    </route>
+    <route method="DELETE" url="/V1/zukaz/coupon/coupons">
+        <service class="Zukaz\Coupon\Api\CouponManagementInterface" method="delete"/>
+        <resources>
+            <resource ref="Magento_SalesRule::quote"/>
+        </resources>
+    </route>
+</routes>
