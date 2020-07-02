@@ -39,6 +39,11 @@ class OrderPlaceAfter implements ObserverInterface
         $order = $observer->getEvent()->getOrder();
         $data = $order->getData();
         $this->_logger->info($this->_json->serialize($order->getData()));
+
+        if(!isset( $data['coupon_code'])){
+            return;
+        }
+
         $coupon_code = $data['coupon_code'];
 
         if (!$this->isZukazCoupon($coupon_code)) {
